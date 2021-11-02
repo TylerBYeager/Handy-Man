@@ -1,33 +1,45 @@
 const Category = require('./Category')
-const Jobs = require('./Jobs')
 const Pending = require('./Pending')
 const Review = require('./Review')
 const User = require('./User')
 const Vendor = require('./Vendor')
 
-Jobs.belongsTo(Category, {
+
+// Vendor and Category Associations
+Vendor.belongsTo(Category, {
     foreignKey: 'category_id',
 });
 
-Category.hasMany(Jobs, {
+Category.hasMany(Vendor, {
     foreignKey:'category_id',
     onDelete:'CASCADE',
 });
 
-Jobs.belongsToMany(Vendor, {
-    through:{
-        model:Pending,
-        unique: false
-    }
+// Request Associations
+Pending.belongsTo(Category, {
+    foreignKey: 'category_id',
 });
 
-Vendor.belongsToMany(Jobs, {
-    through:{
-        model:Pending,
-        unique: false
-    }
-})
+Category.hasMany(Pending, {
+    foreignKey:'category_id',
+});
 
+Pending.belongsTo(User, {
+    foreignKey: 'user_id',
+});
+
+User.hasMany(Pending, {
+    foreignKey:'user_id',
+});
+
+Pending.belongsTo(Vendor, {
+    foreignKey: 'vendor_id',
+});
+
+Vendor.hasMany(Pending, {
+    foreignKey:'vendor_id',
+});
+// Review associations
 Review.belongsTo(Pending, {
     foreignKey:'pending_id'
 })
@@ -37,5 +49,20 @@ Pending.hasOne(Review, {
 });
 
 
+Review.belongsTo(User, {
+    foreignKey:'user_id'
+})
 
-module.exports = {Category, Jobs, Pending, Review, User, Vendor}
+User.hasMany(Review, {
+    foreignKey:'user_id',
+});
+
+Review.belongsTo(Vendor, {
+    foreignKey:'vendor_id'
+})
+
+Vendor.hasMany(Review, {
+    foreignKey:'vendor_id',
+});
+
+module.exports = {Category, Pending, Review, User, Vendor}

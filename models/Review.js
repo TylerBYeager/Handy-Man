@@ -15,6 +15,10 @@ Review.init(
         type: DataTypes.STRING,
         allowNull: false,
       },
+      date: {
+        type: DataTypes.DATE,
+        defaultValue: DataTypes.NOW,
+      },
       user_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -30,10 +34,6 @@ Review.init(
             model: 'vendor',
             key: 'id',
         },
-      },
-      date: {
-        type: DataTypes.DATE,
-        defaultValue: DataTypes.NOW,
       },
       pending_id: {
         type: DataTypes.INTEGER,
