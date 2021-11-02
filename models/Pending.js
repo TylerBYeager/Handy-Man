@@ -23,8 +23,12 @@ Pending.init(
         type: DataTypes.DATETIME,
         defaultValue: sequelize.NOW,
       },
-      vendor_id: {
+      address: {
         type: DataTypes.STRING,
+        allowNull: true,
+      },
+      vendor_id: {
+        type: DataTypes.INTEGER,
         allowNull: false,
         References: {
             model: 'vendor',
@@ -32,7 +36,7 @@ Pending.init(
         },
       },
       job_id: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
         allowNull: false,
         References: {
             model: 'jobs',
