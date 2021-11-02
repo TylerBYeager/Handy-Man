@@ -4,6 +4,7 @@ const Review = require('./Review')
 const User = require('./User')
 const Vendor = require('./Vendor')
 
+
 // Vendor and Category Associations
 Vendor.belongsTo(Category, {
     foreignKey: 'category_id',
@@ -46,6 +47,7 @@ Review.belongsTo(Pending, {
 Pending.hasOne(Review, {
     foreignKey:'pending_id',
 });
+
 
 Review.belongsTo(User, {
     foreignKey:'user_id'
