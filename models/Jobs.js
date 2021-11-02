@@ -15,7 +15,7 @@ Jobs.init(
         type: DataTypes.STRING,
         allowNull: false,
       },
-      salary: {
+      hourly_wage: {
         type: DataTypes.INTEGER,
       },
       category_id: {

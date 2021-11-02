@@ -15,6 +15,10 @@ Vendor.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
+        business_name: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
         email: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -22,6 +26,18 @@ Vendor.init(
             validate: {
                 isEmail: true,
             },
+        },
+        phone: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        category_id: {
+          type: DataTypes.INTEGER,
+          allowNull: false,
+          References: {
+              model: 'category',
+              key: 'id',
+          },
         },
         password: {
             type: DataTypes.STRING,

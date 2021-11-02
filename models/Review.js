@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Reviews extends Model{}
+class Review extends Model{}
 
-Reviews.init(
+Review.init(
     {
       id: {
         type: DataTypes.INTEGER,
@@ -15,8 +15,16 @@ Reviews.init(
         type: DataTypes.STRING,
         allowNull: false,
       },
+      user_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        References: {
+            model: 'user',
+            key: 'id',
+        },
+      },
       vendor_id: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
         allowNull: false,
         References: {
             model: 'vendor',
@@ -28,7 +36,7 @@ Reviews.init(
         defaultValue: DataTypes.NOW,
       },
       pending_id: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
         allowNull: false,
         References: {
             model: 'pending',
@@ -45,4 +53,4 @@ Reviews.init(
     }
 )
 
-    module.exports = Reviews;
+    module.exports = Review;

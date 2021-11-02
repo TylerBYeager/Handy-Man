@@ -32,7 +32,7 @@ Review.belongsTo(Pending, {
     foreignKey:'pending_id'
 })
 
-Pending.hasMany(Review, {
+Pending.hasOne(Review, {
     foreignKey:'pending_id',
 });
 
