@@ -1,0 +1,32 @@
+[
+    {
+        "review_text":"great work",
+        "vendor_id": 1,
+        "pending_id": 1,
+        "user_id": 1
+    },
+    {
+        "review_text":"great plumbing",
+        "vendor_id": 2,
+        "pending_id": 3,
+        "user_id": 1
+    },
+    {
+        "review_text":"great work rewiring",
+        "vendor_id": 3,
+        "pending_id": 4,
+        "user_id": 3
+    },
+    {
+        "review_text":"great painting skills",
+        "vendor_id": 6,
+        "pending_id": 7,
+        "user_id": 1
+    },
+    {
+        "review_text":"beautiful statue",
+        "vendor_id": 8,
+        "pending_id": 8,
+        "user_id": 5
+    }
+]

@@ -35,11 +35,19 @@ Pending.init(
             key: 'id',
         },
       },
-      job_id: {
+      user_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
         References: {
-            model: 'jobs',
+            model: 'user',
+            key: 'id',
+        },
+      },
+      category_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        References: {
+            model: 'category',
             key: 'id',
         },
       },
@@ -47,13 +55,6 @@ Pending.init(
           type: DataTypes.BOOLEAN,
           defaultValue: false,
       },
-      review_id: {
-          type: DataTypes.INTEGER,
-          References: {
-            model: 'review',
-            key: 'id',
-        },    
-      }
     },
     {
         sequelize,

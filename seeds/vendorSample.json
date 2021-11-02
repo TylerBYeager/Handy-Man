@@ -1,0 +1,98 @@
+[
+    {
+        "name":"Test plumber1",
+        "business_name":"plumbusName1",
+        "email":"plum1@gmail.com",
+        "phone":"0987654321",
+        "category_id": 1,
+        "password":"pass1234"
+    },
+    {
+        "name":"Test plumber2",
+        "business_name":"plumbusName2",
+        "email":"plum2@gmail.com",
+        "phone":"1234554321",
+        "category_id": 1,
+        "password":"pass1234"
+    },
+    {
+        "name":"Test electrician1",
+        "business_name":"elecbusName1",
+        "email":"elec@gmail.com",
+        "phone":"1234554321",
+        "category_id": 2,
+        "password":"pass1234"
+    },
+    {
+        "name":"Test mechanic1",
+        "business_name":"mechbusName1",
+        "email":"mech@gmail.com",
+        "phone":"1234554321",
+        "category_id": 3,
+        "password":"pass1234"
+    },
+    {
+        "name":"Test painter1",
+        "business_name":"painbusName1",
+        "email":"pain@gmail.com",
+        "phone":"1234554321",
+        "category_id": 4,
+        "password":"pass1234"
+    },
+    {
+        "name":"Test painter2",
+        "business_name":"painbusName2",
+        "email":"pain2@gmail.com",
+        "phone":"1234554321",
+        "category_id": 4,
+        "password":"pass1234"
+    },
+    {
+        "name":"Test carpenter",
+        "business_name":"carbusName1",
+        "email":"car@gmail.com",
+        "phone":"1111154321",
+        "category_id": 5,
+        "password":"pass1234"
+    },
+    {
+        "name":"Test landscaper",
+        "business_name":"landbusName1",
+        "email":"land@gmail.com",
+        "phone":"1222254351",
+        "category_id": 6,
+        "password":"pass1234"
+    },
+    {
+        "name":"Test pestcontroller",
+        "business_name":"pestbusName1",
+        "email":"pest@gmail.com",
+        "phone":"1225475444",
+        "category_id": 7,
+        "password":"pass1234"
+    },
+    {
+        "name":"Test welder",
+        "business_name":"weldbusName1",
+        "email":"weld@gmail.com",
+        "phone":"1232324321",
+        "category_id": 8,
+        "password":"pass1234"
+    },
+    {
+        "name":"Test realtor",
+        "business_name":"realbusName1",
+        "email":"real@gmail.com",
+        "phone":"1234554321",
+        "category_id": 9,
+        "password":"pass1234"
+    },
+    {
+        "name":"Test bodyguard",
+        "business_name":"bgbusName1",
+        "email":"bg@gmail.com",
+        "phone":"1234554321",
+        "category_id": 10,
+        "password":"pass1234"
+    }
+]
