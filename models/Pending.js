@@ -20,7 +20,7 @@ Pending.init(
         allowNull: true,
       },
       date: {
-        type: DataTypes.DATETIME,
+        type: DataTypes.DATE,
         defaultValue: sequelize.NOW,
       },
       address: {
@@ -47,8 +47,8 @@ Pending.init(
           type: DataTypes.BOOLEAN,
           defaultValue: false,
       },
-      review: {
-          type: DataTypes.STRING,
+      review_id: {
+          type: DataTypes.INTEGER,
           References: {
             model: 'review',
             key: 'id',
