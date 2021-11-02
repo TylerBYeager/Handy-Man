@@ -1,6 +1,7 @@
 const sequelize = require('../config/connection');
 const {User, Category, Pending, Review, Vendor} = require('../models');
 
+
 const categoryData = require('./categorySample.json')
 const pendingData = require('./pendingSample.json')
 const reviewData = require('./reviewSample.json')
