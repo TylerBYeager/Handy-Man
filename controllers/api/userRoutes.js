@@ -34,7 +34,7 @@ router.post('/login', async (req, res) => {
     }
 
     req.session.save(() => {
-      req.session.user_id = userData.isSoftDeleted;
+      req.session.user_id = userData.id;
       req.session.loggedIn = true;
 
       res.json({ user: userData, message: "Successfully logged in!" });
@@ -96,12 +96,16 @@ router.delete("/:id", async (req, res) => {
 });
 
 // User submit new request
+// {name: , description: , address: , vendor_id: , user_id:, category_id: }
 router.post('/new-request', async (req, res) => {
-  try {
 
-  } catch (err) {
-    res.status(500).json(err)
-  }
+    try {
+      const Data = await Pending.create(req.body);
+      res.status(200).json(Data)
+    }catch(err){
+      res.status(500).json(err)
+    }
+
 });
 
 module.exports = router;
