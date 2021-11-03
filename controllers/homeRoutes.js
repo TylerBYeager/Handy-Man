@@ -2,7 +2,7 @@ const router = require("express").Router();
 
 router.get("/", (req, res) => {
   try {
-    res.render("homepage");
+    res.render("homepage", {loggedIn : req.session.loggedIn});
   } catch (err) {
     res.status(500).json(err);
   }
@@ -18,6 +18,10 @@ router.get("/search", (req, res) => {
 
 router.get("/login", (req, res) => {
   try {
+    if (req.session.logged_in) {
+      res.redirect('/');
+      return;
+    }
     res.render("login-choice");
   } catch (err) {
     res.status(500).json(err);
