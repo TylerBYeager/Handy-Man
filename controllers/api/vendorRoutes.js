@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Vendor, Pending, Category } = require('../../models');
+const { Vendor, Pending, Review, Category } = require('../../models');
 
 // Vendor Sign Up
 router.post('/', async (req, res) => {
@@ -44,21 +44,42 @@ router.post('/login', async (req, res) => {
 
 // Vendor Log Out
 router.post('/logout', async (req, res) => {
-  try {
-
-  } catch (err) {
-    res.status(500).json(err)
+  if (req.session.loggedIn) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  } else {
+    res.status(404).end();
   }
 });
 
 // View vendor by ID
 router.get('/:id', async (req, res) => {
   try {
-
+    const oneVendor = await Vendor.findOne(
+      {
+        attributes: { exclude: ["password"] },
+        where: { id: req.prarms.id },
+        include: [{
+          model: Category,
+          attributes: ["name"]
+        },
+        {
+          model: Review,
+          attributes: ["review_text", "date", "user_id", "vendor_id", "pending_id"]
+        }
+        ]
+      });
+    if (!oneVendor) {
+      res.status(404).json("Vendor doesn't exist");
+    } else {
+      res.status(200).json(oneVendor);
+    }
   } catch (err) {
     res.status(500).json(err)
   }
 });
+
 
 // View pending jobs by Vendor
 router.get('/pending', async (req, res) => {
