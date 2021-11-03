@@ -1,7 +1,8 @@
 * {
     margin: 0px;
     padding: 0px;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
 }
 
 html {
@@ -14,7 +15,8 @@ nav {
 }
 
 body {
-    color: #fff;
+    color: black;
+    background-color: #ADFFCE;
     margin: 0;
     padding: 0;
     perspective: 1px;
@@ -34,6 +36,8 @@ body {
 }
 
 .parallax h1 {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
     margin-top: -100px;
 }
 
@@ -52,13 +56,23 @@ body {
     background-image: url(/img/homepage-tools.jpeg);
     background-size: cover;
     transform-origin: center center 0;
-    transform: translate(-1px) scale(1.5);
+    transform: translate(-1px) scale(1);
     z-index: -1;
     min-height: 100vh;
 }
 
 .parallax * {
+
     font-weight: normal;
+    letter-spacing: 0.2em;
+    text-align: center;
+    margin: 0;
+    padding: 1em 0;
+}
+
+.parallax p {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 500;
 }
 
 .nav-link {
@@ -93,6 +107,11 @@ body {
     width: 150px;
     margin-top: 5px;
     margin-left: 20px;
+}
+
+.about-us {
+    margin: 10vh;
+    height: 300px;
 }
 
 @media only screen and (max-width: 1000px){
