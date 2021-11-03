@@ -1,18 +1,18 @@
 [
     {
-        "name":"Plumber"
+        "name":"Plumbing"
     },
     {
         "name":"Electrician"
     },
     {
-        "name":"Auto-Mechanics"
+        "name":"Auto-Mechanic"
     },
     {
         "name":"Painting"
     },
     {
-        "name":"Carpenter"
+        "name":"Carpentry"
     },
     {
         "name":"Landscaping"
@@ -21,10 +21,13 @@
         "name":"Pest-Control"
     },
     {
-        "name":"Welder"
+        "name":"Welding"
     },
     {
-        "name":"Realtor"
+        "name":"Realty"
+    },
+    {
+        "name":"General-Repair"
     },
     {
         "name":"Other"
