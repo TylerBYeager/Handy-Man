@@ -53,6 +53,19 @@ router.post('/logout', async (req, res) => {
   }
 });
 
+router.get("/", async (req, res) => {
+  try {
+    const vendorData = await Vendor.findAll(
+      {
+        attributes: { exclude: ["password" ]}
+      });
+    res.status(200).json(vendorData);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
 // View vendor by ID
 router.get('/:id', async (req, res) => {
   try {
