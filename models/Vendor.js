@@ -1,7 +1,12 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
+const bcrypt = require("bcrypt");
 
-class Vendor extends Model{}
+class Vendor extends Model {
+    checkPassword(loginPw) {
+        return bcrypt.compareSync(loginPw, this.password);
+    }
+}
 
 Vendor.init(
     {
@@ -32,12 +37,12 @@ Vendor.init(
             allowNull: false,
         },
         category_id: {
-          type: DataTypes.INTEGER,
-          allowNull: false,
-          References: {
-              model: 'category',
-              key: 'id',
-          },
+            type: DataTypes.INTEGER,
+            allowNull: true,
+            References: {
+                model: 'category',
+                key: 'id',
+            },
         },
         password: {
             type: DataTypes.STRING,
@@ -49,20 +54,20 @@ Vendor.init(
     },
     {
         hooks: {
-          beforeCreate: async (newVendorData) => {
-            newVendorData.password = await bcrypt.hash(newVendorData.password, 10);
-            return newVendorData;
-          },
-          beforeUpdate: async (updatedVendorData) => {
-            updatedVendorData.password = await bcrypt.hash(updatedVendorData.password, 10);
-            return updatedVendorData;
-          },
+            beforeCreate: async (newVendorData) => {
+                newVendorData.password = await bcrypt.hash(newVendorData.password, 10);
+                return newVendorData;
+            },
+            beforeUpdate: async (updatedVendorData) => {
+                updatedVendorData.password = await bcrypt.hash(updatedVendorData.password, 10);
+                return updatedVendorData;
+            },
         },
         sequelize,
         timestamps: false,
         freezeTableName: true,
         underscored: true,
         modelName: 'vendor',
-      })
+    })
 
-    module.exports = Vendor;
+module.exports = Vendor;

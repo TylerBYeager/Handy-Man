@@ -13,7 +13,7 @@ async function submitButtomHandler(event) {
       headers: { "Content-Type": "application/json" },
     });
 
-    response ? document.location.replace("/") : alert(response.statusText);
+    response.ok ? document.location.replace("/") : alert(response.statusText);
   }
 }
 

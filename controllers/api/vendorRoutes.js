@@ -4,6 +4,7 @@ const { Vendor, Pending, Review, Category } = require('../../models');
 // Vendor Sign Up
 router.post('/', async (req, res) => {
   try {
+    console.log(req.body);
     const newVendor = await Vendor.create(req.body);
 
     req.session.save(() => {

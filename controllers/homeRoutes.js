@@ -10,7 +10,7 @@ router.get("/", (req, res) => {
 
 router.get("/search", (req, res) => {
   try {
-    res.render("search");
+    res.render("search", {loggedIn : req.session.loggedIn});
   } catch (err) {
     res.status(500).json(err);
   }
@@ -70,7 +70,7 @@ router.get("/sign-up/vendor", (req, res) => {
 
 router.get("/contact-us", (req, res) => {
   try {
-    res.render("contact-us");
+    res.render("contact-us", {loggedIn : req.session.loggedIn});
   } catch (err) {
     res.status(500).json(err);
   }
