@@ -24,6 +24,46 @@ router.get("/login", (req, res) => {
   }
 });
 
+router.get("/login/user", (req, res) => {
+  try {
+    res.render("user-login");
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get("/login/vendor", (req, res) => {
+  try {
+    res.render("vendor-login");
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get("/sign-up/", (req, res) => {
+  try {
+    res.render("signup-choice");
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get("/sign-up/user", (req, res) => {
+  try {
+    res.render("user-signup");
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get("/sign-up/vendor", (req, res) => {
+  try {
+    res.render("vendor-signup");
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 router.get("/contact-us", (req, res) => {
   try {
     res.render("contact-us");
