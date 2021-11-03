@@ -19,7 +19,24 @@ router.post('/', async (req, res) => {
 // Vendor Log In
 router.post('/login', async (req, res) => {
   try {
+    const vendorData = await Vendor.findOne({ where: { email: req.body.email } });
+    if (!vendorData) {
+      res.status(400).json({ message: "Incorrect email or password. Try again" });
+      return;
+    }
 
+    const validPassword = await vendorData.checkPassword(req.body.password);
+    if (!validPassword) {
+      res.status(400).json({ message: "Incorrect email or password. Try again" });
+      return;
+    }
+
+    req.session.save(() => {
+      req.session.user_id = vendorData.id;
+      req.session.loggedIn = true;
+
+      res.json({ vendor: vendorData, message: "Successfully logged in!" });
+    });
   } catch (err) {
     res.status(500).json(err)
   }
