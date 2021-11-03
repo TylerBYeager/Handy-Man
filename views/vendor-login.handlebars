@@ -1,16 +1,29 @@
-<div class="card">
-    <h3 class="card-header">Vendor Login</h3>
-    <form id="login-form" class="card-body">
+<div class="container" id="vendor-login">
+  <div class="row">
+    <div class="col mt-5">
+      <div class="card">
+        <h3 class="card-header">Vendor Login</h3>
+        <form id="login-form" class="card-body">
 
-        <label class="form-label" for="email-login">Email</label>
-        <input id="email-login" type="email" autofocus="true" class="form-input" />
-
-        <label class="form-label" for="password-login">Password</label>
-        <input id="password-login" type="password" autofocus="true" class="form-input" />
-
-        <button type="submit" class="btn">Login!</button>
-
-    </form>
+          <div class="form-group">
+            <label for="email-login">Email</label>
+            <input id="email-login" type="email" class="form-control"/>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="password-login">Password</label>
+            <input
+              id="password-login"
+              type="password"
+              class="form-control"
+            />
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary">Login!</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>
 
-{{!-- <script src="/"></script> --}}
+<script src="/js/vendor-login.js"></script>
