@@ -1,25 +1,45 @@
-<div class="card">
-  <h3 class="card-header">User Sign Up</h3>
-  <form id="signup-form" class="card-body">
+<div class="container" id="user-sign-up">
+  <div class="row">
+    <div class="col mt-3">
+      <div class="card">
+        <h3 class="card-header">User Sign Up</h3>
+        <form id="signup-form" class="card-body">
 
-    <label class="form-label" for="fname-signup">First Name</label>
-    <input id="fname-signup" type="text" class="form-input"/>
-
-    <label class="form-label" for="lname-signup">Last Name</label>
-    <input id="lname-signup" type="text" class="form-input"/>
-
-    <label class="form-label" for="usernumber-signup">Phone Number</label>
-    <input id="usernumber-signup" type="text" class="form-input"/>
-
-    <label class="form-label" for="email-signup">Email</label>
-    <input id="email-signup" type="email" class="form-input"/>
-
-    <label class="form-label" for="password-signup">Password</label>
-    <input id="password-signup" type="password" class="form-input"/>
-
-    <button type="submit" class="btn">Sign up!</button>
-
-  </form>
+          <div class="form-group">
+            <label class="form-label" for="fname-signup">First Name</label>
+            <input id="fname-signup" type="text" class="form-control" />
+          </div>
+          <div class="formgroup">
+            <label class="form-label" for="lname-signup">Last Name</label>
+            <input id="lname-signup" type="text" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="usernumber-signup">Phone Number</label>
+            <input id="usernumber-signup" type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required class="form-control" aria-describedby="phoneHelp"/>
+            <small id="phoneHelp" class="form-text text-muted">Format: 123-456-7890</small>
+          </div>
+          <div class="form-group">
+            <label for="email-signup">Email</label>
+            <input id="email-signup" type="email" class="form-control" aria-describedby="emailHelp"/>
+            <small id="emailHelp" class="form-text text-muted">We'll never share
+              your email with anyone else.</small>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="password-signup">Password</label>
+            <input
+              id="password-signup"
+              type="password"
+              class="form-control"
+              aria-describedby="passwordHelp"
+            />
+            <small id="passwordHelp" class="text-muted">Must be at least 8
+              characters long.</small>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary">Sign up!</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>
-
-{{!-- <script src="/"></script> --}}
