@@ -18,4 +18,4 @@ async function submitButtomHandler(event) {
 }
 
 
-document.querySelector('signup-form').addEventListener('submit', submitButtomHandler);
+document.querySelector('#signup-form').addEventListener('submit', submitButtomHandler);
