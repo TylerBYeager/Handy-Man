@@ -46,7 +46,11 @@
           <div class="navbar-nav ml-auto">
             <a class="nav-link" href="/">Home</a>
             <a class="nav-link" href="/search">Search</a>
-            <a class="nav-link" href="/login">Sign In</a>
+            {{#if logged_in}}
+              <a class='nav-link' href='/' id='logout'>Logout</a>
+            {{else}}
+              <a class='nav-link' href='/login'>Sign In</a>
+            {{/if}}
             <a class="nav-link" href="/contact-us">Contact Us</a>
           </div>
         </div>
@@ -58,7 +62,9 @@
     <footer>
 
     </footer>
-
+    {{#if logged_in}}
+      <script src='/js/logout.js'></script>
+    {{/if}}
     <script
       src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
