@@ -124,6 +124,10 @@ body {
     width: 70vw;
 }
 
+.vendor-card{
+    margin-top:30px
+}
+
 @media only screen and (max-width: 1000px){
     .nav-link:hover {
         border-bottom: none!important;
