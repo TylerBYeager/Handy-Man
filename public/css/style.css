@@ -114,6 +114,16 @@ body {
     height: 300px;
 }
 
+#select-category {
+    margin-top: 30px;
+    width: 70vw;
+}
+
+#display{
+    margin-top:30px;
+    width: 70vw;
+}
+
 @media only screen and (max-width: 1000px){
     .nav-link:hover {
         border-bottom: none!important;

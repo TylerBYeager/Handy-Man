@@ -72,7 +72,7 @@ router.get('/:id', async (req, res) => {
     const oneVendor = await Vendor.findOne(
       {
         attributes: { exclude: ["password"] },
-        where: { id: req.prarms.id },
+        where: { id: req.params.id },
         include: [{
           model: Category,
           attributes: ["name"]
