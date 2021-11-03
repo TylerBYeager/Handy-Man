@@ -34,7 +34,7 @@ router.post('/login', async (req, res) => {
     }
 
     req.session.save(() => {
-      req.session.user_id = userData.isSoftDeleted;
+      req.session.user_id = userData.id;
       req.session.loggedIn = true;
 
       res.json({ user: userData, message: "Successfully logged in!" });
