@@ -1,95 +1,95 @@
 [
     {
-        "name":"Test plumber1",
-        "business_name":"plumbusName1",
+        "name":"John Isaacs",
+        "business_name":"Call me Plumb Crazy",
         "email":"plum1@gmail.com",
         "phone":"0987654321",
         "category_id": 1,
         "password":"pass1234"
     },
     {
-        "name":"Test plumber2",
-        "business_name":"plumbusName2",
+        "name":"Michael Meyers",
+        "business_name":"Pipes 4 U",
         "email":"plum2@gmail.com",
         "phone":"1234554321",
         "category_id": 1,
         "password":"pass1234"
     },
     {
-        "name":"Test electrician1",
-        "business_name":"elecbusName1",
+        "name":"Zapp Brannigan",
+        "business_name":"Surge Works, LLC",
         "email":"elec@gmail.com",
         "phone":"1234554321",
         "category_id": 2,
         "password":"pass1234"
     },
     {
-        "name":"Test mechanic1",
-        "business_name":"mechbusName1",
+        "name":"Oliver 'Shade Tree' Johns",
+        "business_name":"Shade Tree Repairs",
         "email":"mech@gmail.com",
         "phone":"1234554321",
         "category_id": 3,
         "password":"pass1234"
     },
     {
-        "name":"Test painter1",
-        "business_name":"painbusName1",
+        "name":"Raphael",
+        "business_name":"Sistine Arts",
         "email":"pain@gmail.com",
         "phone":"1234554321",
         "category_id": 4,
         "password":"pass1234"
     },
     {
-        "name":"Test painter2",
-        "business_name":"painbusName2",
+        "name":"Leonardo Da Vinci",
+        "business_name":"Vitruvian Man with the Vitruvian Plan",
         "email":"pain2@gmail.com",
         "phone":"1234554321",
         "category_id": 4,
         "password":"pass1234"
     },
     {
-        "name":"Test carpenter",
-        "business_name":"carbusName1",
+        "name":"Joseph",
+        "business_name":"Holy Carpentry",
         "email":"car@gmail.com",
         "phone":"1111154321",
         "category_id": 5,
         "password":"pass1234"
     },
     {
-        "name":"Test landscaper",
-        "business_name":"landbusName1",
+        "name":"Matt Barry",
+        "business_name":"Hedges, Lawns, and More Landscaping",
         "email":"land@gmail.com",
         "phone":"1222254351",
         "category_id": 6,
         "password":"pass1234"
     },
     {
-        "name":"Test pestcontroller",
-        "business_name":"pestbusName1",
+        "name":"Flea B. Gone",
+        "business_name":"Gone's Pest Control",
         "email":"pest@gmail.com",
         "phone":"1225475444",
         "category_id": 7,
         "password":"pass1234"
     },
     {
-        "name":"Test welder",
-        "business_name":"weldbusName1",
+        "name":"Caleb Mcelyea",
+        "business_name":"Mcelyea Welds",
         "email":"weld@gmail.com",
         "phone":"1232324321",
         "category_id": 8,
         "password":"pass1234"
     },
     {
-        "name":"Test realtor",
-        "business_name":"realbusName1",
+        "name":"A. Dean Jones",
+        "business_name":"Golden Gate Sotheby's Realty",
         "email":"real@gmail.com",
         "phone":"1234554321",
         "category_id": 9,
         "password":"pass1234"
     },
     {
-        "name":"Test bodyguard",
-        "business_name":"bgbusName1",
+        "name":"John Wick",
+        "business_name":"John Wick",
         "email":"bg@gmail.com",
         "phone":"1234554321",
         "category_id": 10,

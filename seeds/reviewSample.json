@@ -1,30 +1,30 @@
 [
     {
-        "review_text":"great work",
+        "review_text":"Incredible work ethic.",
         "vendor_id": 1,
         "pending_id": 1,
         "user_id": 1
     },
     {
-        "review_text":"great plumbing",
+        "review_text":"Came in clutch when my pipes burst this winter. Arrived in under an hour, assessed the issue, got the part and had us fixed before we knew it.",
         "vendor_id": 2,
         "pending_id": 3,
         "user_id": 1
     },
     {
-        "review_text":"great work rewiring",
+        "review_text":"Completely rewired the house. Now the garbage disposal works WITHOUT also turning on the dryer.",
         "vendor_id": 3,
         "pending_id": 4,
         "user_id": 3
     },
     {
-        "review_text":"great painting skills",
+        "review_text":"I swear the work done was by a Renaissance artist!",
         "vendor_id": 6,
         "pending_id": 7,
         "user_id": 1
     },
     {
-        "review_text":"beautiful statue",
+        "review_text":"Built a gorgeous statue! Highly recommend.",
         "vendor_id": 8,
         "pending_id": 8,
         "user_id": 5
