@@ -101,7 +101,7 @@ router.get("/profile/:id", async (req, res) => {
         const vendor_info = vendorData.get({plain: true})
         console.log(vendor_info)
 
-        res.render("vendor-profile", {vendor_info});
+        res.render("vendor-profile", {vendor_info, loggedIn : req.session.loggedIn });
       } catch (err) {
         res.status(500).json(err);
       }
