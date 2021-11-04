@@ -24,6 +24,7 @@ function loadCategory(){
 
 loadCategory()
 
+let vendorProfile_id;
 
 function display(event){
     event.preventDefault();
@@ -53,7 +54,7 @@ function display(event){
 
                 let newCardlink = document.createElement("a")
                 newCardlink.setAttribute("class", "btn btn-primary")
-                newCardlink.setAttribute("href", "vendor profile page")
+                newCardlink.setAttribute("href", "/profile")
                 newCardlink.innerText = "Visit Profile"
                 newCard.appendChild(newCardlink)
 

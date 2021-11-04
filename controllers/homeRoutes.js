@@ -76,3 +76,11 @@ router.get("/contact-us", (req, res) => {
   }
 });
 module.exports = router;
+
+router.get("/profile", (req, res) => {
+  try {
+    res.render("vendor-profile", {loggedIn : req.session.loggedIn});
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
