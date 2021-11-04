@@ -1,3 +1,5 @@
+const { Vendor, Category, Review, Pending } = require("../models");
+
 const router = require("express").Router();
 
 router.get("/", (req, res) => {
@@ -75,18 +77,35 @@ router.get("/contact-us", (req, res) => {
     res.status(500).json(err);
   }
 });
-module.exports = router;
 
-router.get("/profile/:id", (req, res) => {
-  fetch(`/api/vendors/${req.params.id}`)
-  .then(function(result){
-      return result.json()
-  })
-  .then(function(vendor_info) {
+
+router.get("/profile/:id", async (req, res) => {
       try {
-        res.render("vendor-profile", vendor_info, {loggedIn : req.session.loggedIn});
+        const vendorData = await Vendor.findByPk(req.params.id, {
+          include:[
+            {
+              model: Category,
+              attributes: ["name"]
+            },
+            {
+              model: Review,
+              attributes: ["review_text"]
+            },
+            {
+              model: Pending,
+              attributes: ["name"]
+            }
+          ],
+        })
+        
+        const vendor_info = vendorData.get({plain: true})
+        console.log(vendor_info)
+
+        res.render("vendor-profile", {vendor_info});
       } catch (err) {
         res.status(500).json(err);
       }
-  })
 });
+
+
+module.exports = router;
