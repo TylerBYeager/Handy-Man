@@ -14,7 +14,6 @@ function loadCategory(){
             let newOption = document.createElement("option")
             newOption.value = categories[i].id
             newOption.innerText = categories[i].name
-            console.log(categories[i].name)
             Searchbar.appendChild(newOption)        
     
         }
@@ -23,7 +22,6 @@ function loadCategory(){
 }
 
 loadCategory()
-
 
 function display(event){
     event.preventDefault();
@@ -53,7 +51,7 @@ function display(event){
 
                 let newCardlink = document.createElement("a")
                 newCardlink.setAttribute("class", "btn btn-primary")
-                newCardlink.setAttribute("href", "vendor profile page")
+                newCardlink.setAttribute("href", `/profile/${result.vendors[i].id}`)
                 newCardlink.innerText = "Visit Profile"
                 newCard.appendChild(newCardlink)
 
