@@ -11,7 +11,7 @@ async function loginEventHandler(event) {
             headers: { "Content-Type": "application/json" },
         });
 
-        response
+        response.ok
             ? document.location.replace("/")
             : alert(`${response.statusText}\nEmail or password invalid`);
     }
