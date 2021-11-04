@@ -88,11 +88,19 @@
         "password":"pass1234"
     },
     {
+        "name":"Tim Allen",
+        "business_name":"Tool TIme",
+        "email":"Tool.Time@gmail.com",
+        "phone":"5018675309",
+        "category_id": 10,
+        "password":"pass1234"
+    },
+    {
         "name":"John Wick",
         "business_name":"John Wick",
         "email":"bg@gmail.com",
         "phone":"1234554321",
-        "category_id": 10,
+        "category_id": 11,
         "password":"pass1234"
     }
 ]
