@@ -77,10 +77,16 @@ router.get("/contact-us", (req, res) => {
 });
 module.exports = router;
 
-router.get("/profile", (req, res) => {
-  try {
-    res.render("vendor-profile", {loggedIn : req.session.loggedIn});
-  } catch (err) {
-    res.status(500).json(err);
-  }
+router.get("/profile/:id", (req, res) => {
+  fetch(`/api/vendors/${req.params.id}`)
+  .then(function(result){
+      return result.json()
+  })
+  .then(function(vendor_info) {
+      try {
+        res.render("vendor-profile", vendor_info, {loggedIn : req.session.loggedIn});
+      } catch (err) {
+        res.status(500).json(err);
+      }
+  })
 });
