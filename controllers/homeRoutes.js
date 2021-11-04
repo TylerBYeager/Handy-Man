@@ -2,7 +2,7 @@ const router = require("express").Router();
 
 router.get("/", (req, res) => {
   try {
-    res.render("homepage", {loggedIn : req.session.loggedIn});
+    res.render("homepage", {loggedIn : req.session.loggedIn, isVendor: req.session.isVendor});
   } catch (err) {
     res.status(500).json(err);
   }
@@ -10,7 +10,7 @@ router.get("/", (req, res) => {
 
 router.get("/search", (req, res) => {
   try {
-    res.render("search", {loggedIn : req.session.loggedIn});
+    res.render("search", {loggedIn : req.session.loggedIn, isVendor: req.session.isVendor});
   } catch (err) {
     res.status(500).json(err);
   }
@@ -68,9 +68,17 @@ router.get("/sign-up/vendor", (req, res) => {
   }
 });
 
+router.get("/vendordashboard", (req, res) => {
+  try {
+    res.render("vendor-dashboard", {loggedIn : req.session.loggedIn, isVendor: req.session.isVendor});
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 router.get("/contact-us", (req, res) => {
   try {
-    res.render("contact-us", {loggedIn : req.session.loggedIn});
+    res.render("contact-us", {loggedIn : req.session.loggedIn, isVendor: req.session.isVendor});
   } catch (err) {
     res.status(500).json(err);
   }

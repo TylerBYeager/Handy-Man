@@ -10,6 +10,7 @@ router.post('/', async (req, res) => {
     req.session.save(() => {
       req.session.user_id = newVendor.id;
       req.session.loggedIn = true;
+      req.session.isVendor = true;
       res.json(newVendor);
     });
   } catch (err) {
@@ -35,6 +36,7 @@ router.post('/login', async (req, res) => {
     req.session.save(() => {
       req.session.user_id = vendorData.id;
       req.session.loggedIn = true;
+      req.session.isVendor = true;
 
       res.json({ vendor: vendorData, message: "Successfully logged in!" });
     });
