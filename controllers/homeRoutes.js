@@ -47,7 +47,6 @@ router.get("/login", (req, res) => {
 
 router.get("/login/user", (req, res) => {
   try {
-    is_user = true;
     res.render("user-login");
   } catch (err) {
     res.status(500).json(err);
@@ -56,7 +55,6 @@ router.get("/login/user", (req, res) => {
 
 router.get("/login/vendor", (req, res) => {
   try {
-    is_vendor = true;s
     res.render("vendor-login");
   } catch (err) {
     res.status(500).json(err);
