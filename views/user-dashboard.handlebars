@@ -38,19 +38,25 @@
                     </div>
 
                     <div class="card-body">
-                        {{#if request.approved}}
+                        <div class="card-text ">
+                            Vendor: {{request.vendor.business_name}}
+                        </div>
                         <div class="card-text">
+                            <a href="/profile/{{request.vendor.id}}" class="btn btn-primary" >View profile</a>
+                        </div>
+                        {{#if request.approved}}
+                        <div class="card-text approval-status">
                             Request Status: Approved
                         </div>
                         <div class="card-text">
                             <form>
                                 <label for="review_{{request.id}}"></label>
-                                <input type="text" class="form-control" id='review_{{request.id}}' placeholder="Post a review for {{request.vendor.business_name}}">
-                                <button type="submit" class="btn btn-primary" id='reviewbtn_{{request.id}}'>Submit</button>
+                                <input type="text" class="form-control review_content" id='review_{{request.id}}' placeholder="Post a review for {{request.vendor.business_name}}">
+                                <button type="submit" class="btn btn-primary review_btn" id='reviewbtn_{{request.id}}'>Submit</button>
                             </form>
                         </div>
                         {{else}}
-                        <div class="card-text">
+                        <div class="card-text approval-status">
                             Request Status: Pending Approval
                         </div>
                         {{/if}}
@@ -65,3 +71,5 @@
     </div>
 
 </div>
+
+<script src="/js/user-dashboard.js"></script>
