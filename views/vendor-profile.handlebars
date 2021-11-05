@@ -20,7 +20,6 @@
 
     <div class="card" id="chatBtn">
         <div class="card-title moveMore">
-            {{!-- <a href="chat-window">Click here to start chatting to initiate a job request (Must be logged in)</a> --}}
             <p>Click the icon in the bottom of the page to chat with the vendor!</p>
         </div>
     </div>
@@ -40,6 +39,31 @@
         </div>
     </div>
     {{/if}}
+
+    <div class="card">
+        <form class="card-body">
+            <div class="form-group">
+                <label for="req_name" class="form-label">
+                    Title of requested service
+                </label>
+                <input id="req_name" type="text" lass='form-control'>
+            </div>
+
+            <div class="form-group">
+                <label for="req.description" class="form-label">
+                    Detailed description of requested service
+                </label>
+                <input id="req.description" type="text" lass='form-control'>
+            </div>
+
+            <div class="form-group">
+                <label for="req.address" class="form-label">
+                    Service Address
+                </label>
+                <input id="req.address" type="text" lass='form-control'>
+            </div>
+        </form>
+    </div>
 </div>
 
 <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="d982b479-af3b-4f99-846a-76e5c9e81075";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
