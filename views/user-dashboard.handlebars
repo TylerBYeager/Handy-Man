@@ -1,0 +1,81 @@
+<div class="container">
+    <div class="card" id="info">
+        <div class="card-title move u-id" id="user_{{user_info.id}}">
+            <h2>{{user_info.name}}</h2>
+        </div>
+        <div class="card-text move">
+            Email: {{user_info.email}}
+        </div>
+        <div class="card-text move">
+            Phone: {{user_info.phone}}
+        </div>
+        
+    </div>
+
+    
+<div class="container" id="pendings">
+    <div class="move">
+        <h3>Service Requests</h3>
+    </div>
+    
+    <div class="card-text move">
+            
+        {{#each pendingData as |request|}}
+                <div class="card request">
+
+                    <div class="card-title move">
+                        <h3>Title: {{request.name}}</h3> 
+                    </div>
+
+                    <div class="card-body">
+
+                        <div class="card-text move">
+                            Description: {{request.description}}
+                        </div>
+                        <div class="card-text move">
+                            Address: {{request.address}}
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+                        <div class="card-text">
+                            Vendor: {{request.vendor.business_name}}
+                        </div>
+                        <div class="card-text">
+                            <a href="/profile/{{request.vendor.id}}" class="btn btn-primary" >View profile</a>
+                        </div>
+                        {{#if request.approved}}
+                        <div class="card-text approval-status">
+                            Request Status: Approved
+                        </div>
+                            {{#if request.review.review_text}}
+                            <div class="card-text">
+                                Review submitted: {{request.review.review_text}}
+                            </div>
+                            {{else}}
+                            <div class="card-text v-id" id='{{request.vendor.id}}'>
+                                <form>
+                                    <label class="r-id" id='{{request.id}}' for="review_{{request.id}}"></label>
+                                    <input type="text" class="form-control review_content" id='review_{{request.id}}' placeholder="Post a review for {{request.vendor.business_name}}">
+                                    <button type="button" class="btn btn-primary review_btn">Submit</button>
+                                </form>
+                            </div>
+                            {{/if}}
+                        {{else}}
+                        <div class="card-text approval-status">
+                            Request Status: Pending Approval
+                        </div>
+                        {{/if}}
+
+                    </div>
+
+
+                </div>
+            {{/each}}
+            
+        </div>
+    </div>
+
+</div>
+
+<script src="/js/user-dashboard.js"></script>

@@ -4,7 +4,22 @@ const router = require("express").Router();
 
 router.get("/", (req, res) => {
   try {
-    res.render("homepage", {loggedIn : req.session.loggedIn});
+    
+    console.log("logged_in_status= " + JSON.stringify(req.session) )
+
+
+    let loggedin_id;
+    console.log("user id is: "+ req.session.user_id)
+    console.log("vendor id is: "+ req.session.vendor_id)
+
+    if(req.session.user_id){
+      loggedin_id = req.session.user_id
+    }
+    else if(req.session.vendor_id){
+      loggedin_id = req.session.vendor_id
+    }
+    console.log(loggedin_id)
+    res.render("homepage", {loggedin_id, loggedIn : req.session.loggedIn});
   } catch (err) {
     res.status(500).json(err);
   }
@@ -101,56 +116,101 @@ router.get("/profile/:id", async (req, res) => {
         const vendor_info = vendorData.get({plain: true})
         console.log(vendor_info)
 
-        res.render("vendor-profile", {vendor_info, loggedIn : req.session.loggedIn });
+        res.render("vendor-profile", {vendor_info, loggedin_id: req.session.user_id ,loggedIn : req.session.loggedIn });
       } catch (err) {
         res.status(500).json(err);
       }
 });
 
 router.get("/vendor-dashboard/:id", async (req, res) => {
-  try {
-    const vendorData = await Vendor.findByPk(req.params.id, {
-      include:[
-        {
-          model: Category,
-          attributes: ["name"]
-        },
-        {
-          model: Review,
-          attributes: ["review_text"]
-        },
-        {
-          model: Pending,
-          attributes: ["name"]
-        }
-      ],
-    })
-    
-    const vendor_info = vendorData.get({plain: true})
-    console.log(vendor_info)
+  console.log("current vendor id is "+req.session.vendor_id)
+  console.log("trying to access id of "+req.params.id)
+  if(req.session.vendor_id==req.params.id){
+    try {
+      const [vendorData, pendingData] = await Promise.all([
+        Vendor.findByPk(req.params.id, {
+          include:[
+            {
+              model: Category,
+            }
+          ],
+        }),
+        Pending.findAll({
+          where: {
+            vendor_id: req.params.id
+          },
+          
+          include: [
+            {
+              model:Review,
+            },
+            {
+              model:User,
+            }
+          ],
+          raw:true,
+          nest:true,
+        })
+      ]
+    ) 
+      console.log(pendingData)
+      const vendor_info = vendorData.get({plain: true})
+      console.log(vendor_info)
 
-    res.render("vendor-profile", {vendor_info, loggedIn : req.session.loggedIn });
-  } catch (err) {
-    res.status(500).json(err);
+      res.render("vendor-dashboard", {vendor_info, pendingData, loggedIn : req.session.loggedIn });
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  }
+  else{
+    try{
+      res.render("access-denied")
+    } catch (err) {
+      res.status(500).json(err);
+    }
   }
 });
 
 router.get("/user-dashboard/:id", async (req, res) => {
-  try {
-    const userData = await User.findByPk(req.params.id, {
-      include:[
-        {
-          model: Pending
-        }
-      ],
-    })
-    
-    const vendor_info = userData.get({plain: true})
-    console.log(userData)
+  console.log("current user id is "+req.session.user_id)
+  console.log("trying to access "+req.params.id)
+  if(req.session.user_id==req.params.id){
+    try {
+      const [userData, pendingData] = await Promise.all([
+        User.findByPk(req.params.id),
+        Pending.findAll({
+          where: {
+            user_id: req.params.id
+          },
+          
+          include: [
+            {
+              model:Vendor,
+            },
+            {
+              model:Review,
+            }
+          ],
+          raw:true,
+          nest:true,
+        })
+      ]
+    ) 
+      console.log(pendingData)
+      const user_info = userData.get({plain: true})
+      console.log(user_info)
 
-    res.render("user-dashboard", {userData, loggedIn : req.session.loggedIn });
-  } catch (err) {
-    res.status(500).json(err);
+      res.render("user-dashboard", {user_info, pendingData, loggedIn : req.session.loggedIn });
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  }
+  else{
+    try{
+      res.render("access-denied")
+    } catch (err) {
+      res.status(500).json(err);
+    }
   }
 });
 

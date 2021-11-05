@@ -128,6 +128,44 @@ body {
     margin-top:30px
 }
 
+<<<<<<< HEAD
+#info{
+    margin-top: 30px;
+}
+
+#review{
+    margin-top: 30px;
+}
+
+#chatBtn{
+    margin-top: 30px;
+}
+
+.move{
+    margin-left: 20px;
+}
+
+.moveMORE{
+    margin-left: 30px;
+}
+
+.request{
+    margin-top: 15px;
+    padding-bottom: 20px;
+}
+
+#pendings{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    
+}
+
+.approval-status{
+    margin-top: 20px;
+}
+
+=======
+>>>>>>> 2ab984e79e09cd75af00a18466f872939408666b
 @media only screen and (max-width: 1000px){
     .nav-link:hover {
         border-bottom: none!important;
