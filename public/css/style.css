@@ -149,6 +149,10 @@ body {
 }
 
 .request{
+    margin-top: 15px;
+}
+
+#pendings{
     margin-top: 30px;
 }
 

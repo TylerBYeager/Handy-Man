@@ -21,10 +21,10 @@
 
 <div class="container" id="pendings">
     <div class="move">
-        <h4>Service Requests</h4>
+        <h3>Service Requests</h3>
     </div>
     
-    <div class="card-text moveMORE">
+    <div class="card-text move">
             
         {{#each pendingData as |request|}}
                 <div class="card request">
@@ -69,8 +69,14 @@
                         <div class="card-text">
                             Request Status: Approved
                         </div>
+                        <div class="card-text">
+                            Review: {{request.review.review_text}}
+                        </div>
                         {{else}}
-                        
+                        <div class="card-text">
+                            Request Status: Pending Approval
+                        </div>
+                        <a class="btn btn-primary approve" id="{{request.id}}">Approve Request</a>
                         {{/if}}
 
                     </div>
@@ -82,6 +88,7 @@
         </div>
     </div>
 
+<script src="/js/vendor-dashboard.js"></script>
 
 
 
