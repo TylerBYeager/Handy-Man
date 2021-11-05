@@ -4,12 +4,11 @@ const c_id = document.querySelector('.c-id').id
 const form = document.querySelector('#newForm')
 const status_text = document.querySelector('#status')
 
-console.log("uid="+u_id +" "+ "vid="+v_id+ "cid="+c_id)
+
 
 async function submitNewRequest(event) {
     event.preventDefault();
 
-    console.log(document.querySelector("#req_description").value)
   
     const name1 = document.querySelector("#req_name").value.trim();
     const description1 = document.querySelector("#req_description").value.trim();

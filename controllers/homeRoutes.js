@@ -127,7 +127,7 @@ router.get("/profile/:id", async (req, res) => {
 router.get("/vendor-dashboard/:id", async (req, res) => {
   console.log("current vendor id is "+req.session.vendor_id)
   console.log("trying to access id of "+req.params.id)
-  // if(req.session.vendor_id==req.params.id){
+  if(req.session.vendor_id==req.params.id){
     try {
       const [vendorData, pendingData] = await Promise.all([
         Vendor.findByPk(req.params.id, {
@@ -163,20 +163,20 @@ router.get("/vendor-dashboard/:id", async (req, res) => {
     } catch (err) {
       res.status(500).json(err);
     }
-  // }
-  // else{
-  //   try{
-  //     res.render("access-denied")
-  //   } catch (err) {
-  //     res.status(500).json(err);
-  //   }
-  // }
+  }
+  else{
+    try{
+      res.render("access-denied")
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  }
 });
 
 router.get("/user-dashboard/:id", async (req, res) => {
   console.log("current user id is "+req.session.user_id)
   console.log("trying to access "+req.params.id)
-  // if(req.session.user_id==req.params.id){
+  if(req.session.user_id==req.params.id){
     try {
       const [userData, pendingData] = await Promise.all([
         User.findByPk(req.params.id),
@@ -206,14 +206,14 @@ router.get("/user-dashboard/:id", async (req, res) => {
     } catch (err) {
       res.status(500).json(err);
     }
-  // }
-  // else{
-  //   try{
-  //     res.render("access-denied")
-  //   } catch (err) {
-  //     res.status(500).json(err);
-  //   }
-  // }
+  }
+  else{
+    try{
+      res.render("access-denied")
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  }
 });
 
 
