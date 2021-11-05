@@ -126,7 +126,7 @@ router.get("/profile/:id", async (req, res) => {
 
 router.get("/vendor-dashboard/:id", async (req, res) => {
   console.log("current vendor id is "+req.session.vendor_id)
-  console.log("trying to access "+req.params.id)
+  console.log("trying to access id of "+req.params.id)
   if(req.session.vendor_id==req.params.id){
     try {
       const vendorData = await Vendor.findByPk(req.params.id, {
