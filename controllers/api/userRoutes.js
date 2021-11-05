@@ -100,8 +100,8 @@ router.delete("/:id", async (req, res) => {
 router.post('/new-request', async (req, res) => {
 
     try {
-      const Data = await Pending.create(req.body);
-      res.status(200).json(Data)
+      const data = await Pending.create(req.body);
+      res.status(200).json(data)
     }catch(err){
       res.status(500).json(err)
     }

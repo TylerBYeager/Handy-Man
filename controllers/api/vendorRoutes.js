@@ -98,10 +98,10 @@ router.get('/:id', async (req, res) => {
 // View pending jobs by Vendor
 router.get('/:vendor_id/pending', async (req, res) => {
     try {
-      const Data = await Pending.findAll({
+      const data = await Pending.findAll({
         where:{vendor_id:req.params.vendor_id}
       });
-      res.status(200).json(Data)
+      res.status(200).json(data)
     }catch(err){
       res.status(500).json(err)
     }
@@ -110,8 +110,8 @@ router.get('/:vendor_id/pending', async (req, res) => {
 // View pending jobs by ID
 router.get('/pending/:id', async (req, res) => {
     try {
-      const Data = await Pending.findByPk(req.params.id);
-      res.status(200).json(Data)
+      const data = await Pending.findByPk(req.params.id);
+      res.status(200).json(data)
     }catch(err){
       res.status(500).json(err)
     }
@@ -120,12 +120,12 @@ router.get('/pending/:id', async (req, res) => {
 // Approve job request
 router.put('/approve/:pending_id', async (req, res) => {
     try {
-      const Data = await Pending.update({approved:true}, {
+      const data = await Pending.update({approved:true}, {
         where:{
           id:req.params.pending_id,
         },
       })
-      res.status(200).json(Data)
+      res.status(200).json(data)
     }catch(err){
       res.status(500).json(err)
     }
