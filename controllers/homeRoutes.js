@@ -27,7 +27,19 @@ router.get("/", (req, res) => {
 
 router.get("/search", (req, res) => {
   try {
-    res.render("search", {loggedIn : req.session.loggedIn});
+    let loggedin_id;
+    console.log("user id is: "+ req.session.user_id)
+    console.log("vendor id is: "+ req.session.vendor_id)
+
+    if(req.session.user_id){
+      loggedin_id = req.session.user_id
+    }
+    else if(req.session.vendor_id){
+      loggedin_id = req.session.vendor_id
+    }
+    console.log(loggedin_id)
+
+    res.render("search", {loggedin_id, loggedIn : req.session.loggedIn});
   } catch (err) {
     res.status(500).json(err);
   }
@@ -87,7 +99,19 @@ router.get("/sign-up/vendor", (req, res) => {
 
 router.get("/contact-us", (req, res) => {
   try {
-    res.render("contact-us", {loggedIn : req.session.loggedIn});
+    let loggedin_id;
+    console.log("user id is: "+ req.session.user_id)
+    console.log("vendor id is: "+ req.session.vendor_id)
+
+    if(req.session.user_id){
+      loggedin_id = req.session.user_id
+    }
+    else if(req.session.vendor_id){
+      loggedin_id = req.session.vendor_id
+    }
+    console.log(loggedin_id)
+
+    res.render("contact-us", {loggedin_id, loggedIn : req.session.loggedIn});
   } catch (err) {
     res.status(500).json(err);
   }
@@ -96,6 +120,7 @@ router.get("/contact-us", (req, res) => {
 
 router.get("/profile/:id", async (req, res) => {
       try {
+        
         const vendorData = await Vendor.findByPk(req.params.id, {
           include:[
             {
