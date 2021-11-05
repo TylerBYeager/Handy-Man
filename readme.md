@@ -200,7 +200,7 @@
 - Google 
 
 ## License
-![License](https://img.shields.io/badge/License-Apache-blue.svg)
+![License](https://img.shields.io/badge/License-MIT-green.svg)
 
 ## Questions
 - wow_d2@hotmail.com (Tyler's Email)
