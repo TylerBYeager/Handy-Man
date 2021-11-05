@@ -174,7 +174,7 @@
   * [HTML](https://www.w3schools.com/html/)
   * [EXPRESS-SESSION](https://www.npmjs.com/package/express-session)
   * [HANDLEBARS.JS](https://handlebarsjs.com/)
-  * [Crisp Live Chat Widget](https://crisp.chat/en/)
+  * [CRISP LIVE CHAT WIDGET](https://crisp.chat/en/)
 
   ## Deployed Link
 * [See the Live Site!](https://handy-man-1024.herokuapp.com) 
