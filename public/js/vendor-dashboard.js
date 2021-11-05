@@ -15,7 +15,7 @@ for(i=0;i<approveArr.length;i++){
     let pending_id = approveArr[i].id.split('_')[1]
     console.log("pending_id is: "+pending_id)
     approveArr[i].addEventListener('click', function(event){
-        event.preventDefault
-        approve(pending_id)
+        event.preventDefault;
+        approve(pending_id);
     })
 }

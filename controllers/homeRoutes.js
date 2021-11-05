@@ -158,8 +158,6 @@ router.get("/vendor-dashboard/:id", async (req, res) => {
       console.log(pendingData)
       const vendor_info = vendorData.get({plain: true})
       console.log(vendor_info)
-      console.log("1234")
-      console.log("5678")
 
       res.render("vendor-dashboard", {vendor_info, pendingData, loggedIn : req.session.loggedIn });
     } catch (err) {
@@ -180,18 +178,30 @@ router.get("/user-dashboard/:id", async (req, res) => {
   console.log("trying to access "+req.params.id)
   // if(req.session.user_id==req.params.id){
     try {
-      const userData = await User.findByPk(req.params.id, {
-        include:[
-          {
-            model: Pending
-          }
-        ],
-      })
-      
+      const [userData, pendingData] = await Promise.all([
+        User.findByPk(req.params.id),
+        Pending.findAll({
+          where: {
+            user_id: req.params.id
+          },
+          
+          include: [
+            {
+              model:Vendor,
+            }
+          ],
+          raw:true,
+          nest:true,
+        })
+      ]
+    ) 
+      console.log(pendingData)
       const user_info = userData.get({plain: true})
       console.log(user_info)
+      console.log("1234")
+      console.log("5678")
 
-      res.render("user-dashboard", {user_info, loggedIn : req.session.loggedIn });
+      res.render("vendor-dashboard", {vendor_info, pendingData, loggedIn : req.session.loggedIn });
     } catch (err) {
       res.status(500).json(err);
     }
