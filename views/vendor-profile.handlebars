@@ -1,17 +1,18 @@
 <div class="container">
+
     <div class="row mt-5">
         <div class="w-75 mx-auto">
             <div class="card">
-                <div class="card-header">
+                <div class="card-header" id="business-name">
                     <h2>{{vendor_info.business_name}}</h2>
                 </div>
                 <div class="card-body">
                     <ul class="list-group">
-                        <li class="list-group-item">
+                        <li class="list-group-item v-id" id={{vendor_info.id}}>
                             Owned by:
                             {{vendor_info.name}}
                         </li>
-                        <li class="list-group-item">
+                        <li class="list-group-item c-id" id={{vendor_info.category_id}}>
                             Category:
                             {{vendor_info.category.name}}
                         </li>
@@ -28,9 +29,10 @@
                 <div class="card-footer text-muted">
                     {{! <a href="chat-window">Click here to start chatting to initiate a job request (Must be logged in)</a> }}
                     Click the icon in the bottom of the page to chat with the
-                    vendor!
+                    vendor! Log in to submit a service request!
                 </div>
             </div>
+
         </div>
     </div>
 
@@ -49,8 +51,45 @@
             </div>
         </div>
     {{/if}}
+
+    {{#if loggedin_id}}
+    <div class="card">
+        <form id="newForm" class="card-body">
+            <div class="form-group">
+                <label for="req_name" class="form-label u-id" id="{{loggedin_id}}">
+                    Title of requested service
+                </label>
+                <input id="req_name" type="text" class='form-control'>
+            </div>
+
+            <div class="form-group">
+                <label for="req_description" class="form-label">
+                    Detailed description of requested service
+                </label>
+                <input id="req_description" type="text" class='form-control'>
+            </div>
+
+            <div class="form-group">
+                <label for="req_address" class="form-label">
+                    Service Address
+                </label>
+                <input id="req_address" type="text" class='form-control'>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+
+            <div id="status">
+
+            </div>
+        </form>
+    </div>
+    {{/if}}
 </div>
 
-<script
-    type="text/javascript"
->window.$crisp=[];window.CRISP_WEBSITE_ID="d982b479-af3b-4f99-846a-76e5c9e81075";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
+    {{#if loggedin_id}}
+        <script src='/js/vendor-profile.js'></script>
+    {{/if}}
+
+<script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="d982b479-af3b-4f99-846a-76e5c9e81075";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
