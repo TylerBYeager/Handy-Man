@@ -1,4 +1,4 @@
-const { Vendor, Category, Review, Pending } = require("../models");
+const { Vendor, Category, Review, Pending, User } = require("../models");
 
 const router = require("express").Router();
 
@@ -105,6 +105,53 @@ router.get("/profile/:id", async (req, res) => {
       } catch (err) {
         res.status(500).json(err);
       }
+});
+
+router.get("/vendor-dashboard/:id", async (req, res) => {
+  try {
+    const vendorData = await Vendor.findByPk(req.params.id, {
+      include:[
+        {
+          model: Category,
+          attributes: ["name"]
+        },
+        {
+          model: Review,
+          attributes: ["review_text"]
+        },
+        {
+          model: Pending,
+          attributes: ["name"]
+        }
+      ],
+    })
+    
+    const vendor_info = vendorData.get({plain: true})
+    console.log(vendor_info)
+
+    res.render("vendor-profile", {vendor_info, loggedIn : req.session.loggedIn });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get("/user-dashboard/:id", async (req, res) => {
+  try {
+    const userData = await User.findByPk(req.params.id, {
+      include:[
+        {
+          model: Pending
+        }
+      ],
+    })
+    
+    const vendor_info = userData.get({plain: true})
+    console.log(userData)
+
+    res.render("user-dashboard", {userData, loggedIn : req.session.loggedIn });
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 

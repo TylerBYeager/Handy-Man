@@ -49,6 +49,7 @@
             <a class="nav-link" href="/search">Search</a>
             {{#if loggedIn}}
               <a class='nav-link' href='/' id='logout'>Logout</a>
+              <a class='nav-link' id='dashboard'>Dashboard</a>
             {{else}}
               <a class='nav-link' href='/login'>Sign In</a>
             {{/if}}
@@ -65,6 +66,7 @@
     </footer>
     {{#if loggedIn}}
       <script src='/js/logout.js'></script>
+      <script src='/js/main-dashboard.js'></script>
     {{/if}}
     <script
       src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
