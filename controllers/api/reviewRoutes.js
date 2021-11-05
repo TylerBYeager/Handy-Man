@@ -20,7 +20,7 @@ router.get('/:id', async (req, res) => {
 
 // Post review for pendingjob by id
 // {review_text: , user_id: , vendor_id: , pending_id: }
-router.post('/', withAuth, async (req, res) => {
+router.post('/', async (req, res) => {
     try {
       const data = await Review.create(req.body);
       res.status(200).json(data)
