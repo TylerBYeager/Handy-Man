@@ -1,46 +1,57 @@
 <div class="container">
-    <div class="card" id="info">
-        <div class="card-title move" id="business-name">
-            <h2>{{vendor_info.business_name}}</h2>
-        </div>
-        <div class="card-text move v-id" id={{vendor_info.id}}>
-            Owned by: {{vendor_info.name}}
-        </div>
-        <div class="card-text move c-id" id={{vendor_info.category_id}}>
-            Category: {{vendor_info.category.name}}
-        </div>
-        <div class="card-text move">
-            Email: {{vendor_info.email}}
-        </div>
-        <div class="card-text move">
-            Phone: {{vendor_info.phone}}
-        </div>
-        
-    </div>
 
-    <div class="card" id="chatBtn">
-        <div class="card-title moveMore">
-            <p>Click the icon in the bottom of the page to chat with the vendor!</p>
-        </div>
-        <div class="card-title moveMore">
-            <p>Log in to submit a service request!</p>
+    <div class="row mt-5">
+        <div class="w-75 mx-auto">
+            <div class="card" id="info">
+                <div class="card-header" id="business-name">
+                    <h2>{{vendor_info.business_name}}</h2>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group">
+                        <li class="list-group-item v-id" id={{vendor_info.id}}>
+                            Owned by:
+                            {{vendor_info.name}}
+                        </li>
+                        <li class="list-group-item c-id" id={{vendor_info.category_id}}>
+                            Category:
+                            {{vendor_info.category.name}}
+                        </li>
+                        <li class="list-group-item">
+                            Email:
+                            {{vendor_info.email}}
+                        </li>
+                        <li class="list-group-item">
+                            Phone:
+                            {{vendor_info.phone}}
+                        </li>
+                    </ul>
+                </div>
+                <div class="card-footer text-muted">
+                    
+                    Click the icon in the bottom of the page to chat with the
+                    vendor! Log in to submit a service request!
+                    
+                    
+                </div>
+            </div>
+
         </div>
     </div>
 
     {{#if vendor_info.reviews.length}}
-    <div class="card" id="review">
-        <div class="card-title move">
-            <h4>Reviews</h4>
+        <div class="card" id="review">
+            <div class="card-title">
+                <h4>Reviews</h4>
+            </div>
+
+            <div class="card-text">
+                <ul>
+                    {{#each vendor_info.reviews as |review|}}
+                        <li>{{review.review_text}}</li>
+                    {{/each}}
+                </ul>
+            </div>
         </div>
-    
-        <div class="card-text moveMORE">
-            <ul>
-            {{#each vendor_info.reviews as |review|}}
-                <li>{{review.review_text}}</li>
-            {{/each}}
-            </ul>
-        </div>
-    </div>
     {{/if}}
 
     {{#if loggedin_id}}
@@ -79,8 +90,10 @@
     {{/if}}
 </div>
 
+
     {{#if loggedin_id}}
         <script src='/js/vendor-profile.js'></script>
     {{/if}}
 
 <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="d982b479-af3b-4f99-846a-76e5c9e81075";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
+
