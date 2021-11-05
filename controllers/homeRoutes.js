@@ -127,43 +127,58 @@ router.get("/profile/:id", async (req, res) => {
 router.get("/vendor-dashboard/:id", async (req, res) => {
   console.log("current vendor id is "+req.session.vendor_id)
   console.log("trying to access id of "+req.params.id)
-  if(req.session.vendor_id==req.params.id){
+  // if(req.session.vendor_id==req.params.id){
     try {
-      const vendorData = await Vendor.findByPk(req.params.id, {
-        include:[
-          {
-            model: Category,
+      const [vendorData, pendingData] = await Promise.all([
+        Vendor.findByPk(req.params.id, {
+          include:[
+            {
+              model: Category,
+            }
+          ],
+        }),
+        Pending.findAll({
+          where: {
+            vendor_id: req.params.id
           },
-          {
-            model: Review,
-          },
-          {
-            model: Pending,
-          }
-        ],
-      })
-      
+          
+          include: [
+            {
+              model:Review,
+            },
+            {
+              model:User,
+            }
+          ],
+          raw:true,
+          nest:true,
+        })
+      ]
+    ) 
+      console.log(pendingData)
       const vendor_info = vendorData.get({plain: true})
       console.log(vendor_info)
+      console.log("1234")
+      console.log("5678")
 
-      res.render("vendor-dashboard", {vendor_info, loggedIn : req.session.loggedIn });
+      res.render("vendor-dashboard", {vendor_info, pendingData, loggedIn : req.session.loggedIn });
     } catch (err) {
       res.status(500).json(err);
     }
-  }
-  else{
-    try{
-      res.render("access-denied")
-    } catch (err) {
-      res.status(500).json(err);
-    }
-  }
+  // }
+  // else{
+  //   try{
+  //     res.render("access-denied")
+  //   } catch (err) {
+  //     res.status(500).json(err);
+  //   }
+  // }
 });
 
 router.get("/user-dashboard/:id", async (req, res) => {
   console.log("current user id is "+req.session.user_id)
   console.log("trying to access "+req.params.id)
-  if(req.session.user_id==req.params.id){
+  // if(req.session.user_id==req.params.id){
     try {
       const userData = await User.findByPk(req.params.id, {
         include:[
@@ -180,14 +195,14 @@ router.get("/user-dashboard/:id", async (req, res) => {
     } catch (err) {
       res.status(500).json(err);
     }
-  }
-  else{
-    try{
-      res.render("access-denied")
-    } catch (err) {
-      res.status(500).json(err);
-    }
-  }
+  // }
+  // else{
+  //   try{
+  //     res.render("access-denied")
+  //   } catch (err) {
+  //     res.status(500).json(err);
+  //   }
+  // }
 });
 
 

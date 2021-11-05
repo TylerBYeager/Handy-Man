@@ -1,1 +1,88 @@
-<p>vendor dashboard</p>
+<div class="container">
+    <div class="card" id="info">
+        <div class="card-title move" id="business-name">
+            <h2>{{vendor_info.business_name}}</h2>
+        </div>
+        <div class="card-text move">
+            Owned by: {{vendor_info.name}}
+        </div>
+        <div class="card-text move">
+            Category: {{vendor_info.category.name}}
+        </div>
+        <div class="card-text move">
+            Email: {{vendor_info.email}}
+        </div>
+        <div class="card-text move">
+            Phone: {{vendor_info.phone}}
+        </div>
+        
+    </div>
+</div>
+
+<div class="container" id="pendings">
+    <div class="move">
+        <h4>Service Requests</h4>
+    </div>
+    
+    <div class="card-text moveMORE">
+            
+        {{#each pendingData as |request|}}
+                <div class="card request">
+
+                    <div class="card-title move">
+                        <h3>Title: {{request.name}}</h3> 
+                    </div>
+
+                    <div class="card-body">
+
+                        <div class="card-text move">
+                            Description: {{request.description}}
+                        </div>
+                        
+                    </div>
+
+                    <div class="card-body">
+
+                        <div class="card-text">
+                            <h4>Client Information</h4>
+                        </div>
+
+                        <div class="card-text move">
+                            Client Name: {{request.user.name}}
+                        </div>
+
+                        <div class="card-text move">
+                            Client Email: {{request.user.email}}
+                        </div>
+
+                        <div class="card-text move">
+                            Client Phone Number: {{request.user.phone}}
+                        </div>
+
+                        <div class="card-text move">
+                            Address of service: {{request.address}}
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+                        {{#if request.approved}}
+                        <div class="card-text">
+                            Request Status: Approved
+                        </div>
+                        {{else}}
+                        
+                        {{/if}}
+
+                    </div>
+
+
+                </div>
+            {{/each}}
+            
+        </div>
+    </div>
+
+
+
+
+    
