@@ -188,6 +188,9 @@ router.get("/user-dashboard/:id", async (req, res) => {
           include: [
             {
               model:Vendor,
+            },
+            {
+              model:Review,
             }
           ],
           raw:true,

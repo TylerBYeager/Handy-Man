@@ -1,6 +1,6 @@
 <div class="container">
     <div class="card" id="info">
-        <div class="card-title move" id="business-name">
+        <div class="card-title move u-id" id="user_{{user_info.id}}">
             <h2>{{user_info.name}}</h2>
         </div>
         <div class="card-text move">
@@ -38,7 +38,7 @@
                     </div>
 
                     <div class="card-body">
-                        <div class="card-text ">
+                        <div class="card-text v_id" id='{{request.vendor.id}}'>
                             Vendor: {{request.vendor.business_name}}
                         </div>
                         <div class="card-text">
@@ -48,13 +48,19 @@
                         <div class="card-text approval-status">
                             Request Status: Approved
                         </div>
-                        <div class="card-text">
-                            <form>
-                                <label for="review_{{request.id}}"></label>
-                                <input type="text" class="form-control review_content" id='review_{{request.id}}' placeholder="Post a review for {{request.vendor.business_name}}">
-                                <button type="submit" class="btn btn-primary review_btn" id='reviewbtn_{{request.id}}'>Submit</button>
-                            </form>
-                        </div>
+                            {{#if request.review.review_text}}
+                            <div class="card-text">
+                                Review submitted: {{request.review.review_text}}
+                            </div>
+                            {{else}}
+                            <div class="card-text">
+                                <form>
+                                    <label for="review_{{request.id}}"></label>
+                                    <input type="text" class="form-control review_content" id='review_{{request.id}}' placeholder="Post a review for {{request.vendor.business_name}}">
+                                    <button type="submit" class="btn btn-primary review_btn" id='reviewbtn_{{request.id}}'>Submit</button>
+                                </form>
+                            </div>
+                            {{/if}}
                         {{else}}
                         <div class="card-text approval-status">
                             Request Status: Pending Approval
@@ -72,4 +78,4 @@
 
 </div>
 
-<script src="/js/user-dashboard.js"></script>
+{{!-- <script src="/js/user-dashboard.js"></script> --}}
