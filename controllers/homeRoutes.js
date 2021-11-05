@@ -201,7 +201,7 @@ router.get("/user-dashboard/:id", async (req, res) => {
       console.log("1234")
       console.log("5678")
 
-      res.render("vendor-dashboard", {vendor_info, pendingData, loggedIn : req.session.loggedIn });
+      res.render("user-dashboard", {user_info, pendingData, loggedIn : req.session.loggedIn });
     } catch (err) {
       res.status(500).json(err);
     }

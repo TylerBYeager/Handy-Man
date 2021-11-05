@@ -20,7 +20,7 @@
     
     <div class="card-text move">
             
-        {{#each user_info.pendings as |request|}}
+        {{#each pendingData as |request|}}
                 <div class="card request">
 
                     <div class="card-title move">
@@ -43,7 +43,11 @@
                             Request Status: Approved
                         </div>
                         <div class="card-text">
-                            Review: {{request.review.review_text}}
+                            <form>
+                                <label for="review_{{request.id}}"></label>
+                                <input type="text" class="form-control" id='review_{{request.id}}' placeholder="Post a review for {{request.vendor.business_name}}">
+                                <button type="submit" class="btn btn-primary" id='reviewbtn_{{request.id}}'>Submit</button>
+                            </form>
                         </div>
                         {{else}}
                         <div class="card-text">
