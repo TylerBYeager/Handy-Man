@@ -40,6 +40,7 @@
     </div>
     {{/if}}
 
+    {{#if loggedIn}}
     <div class="card">
         <form class="card-body">
             <div class="form-group">
@@ -64,6 +65,11 @@
             </div>
         </form>
     </div>
+    {{/if}}
 </div>
+
+    {{#if loggedIn}}
+        <script src='/js/vendor-profile.js'></script>
+    {{/if}}
 
 <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="d982b479-af3b-4f99-846a-76e5c9e81075";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
