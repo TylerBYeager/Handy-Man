@@ -118,7 +118,7 @@ router.get("/profile/:id", async (req, res) => {
         const vendor_info = vendorData.get({plain: true})
         console.log(vendor_info)
 
-        res.render("vendor-profile", {vendor_info, loggedIn : req.session.loggedIn });
+        res.render("vendor-profile", {vendor_info, loggedin_id: req.session.user_id ,loggedIn : req.session.loggedIn });
       } catch (err) {
         res.status(500).json(err);
       }
@@ -201,8 +201,6 @@ router.get("/user-dashboard/:id", async (req, res) => {
       console.log(pendingData)
       const user_info = userData.get({plain: true})
       console.log(user_info)
-      console.log("1234")
-      console.log("5678")
 
       res.render("user-dashboard", {user_info, pendingData, loggedIn : req.session.loggedIn });
     } catch (err) {

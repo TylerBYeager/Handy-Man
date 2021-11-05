@@ -3,10 +3,10 @@
         <div class="card-title move" id="business-name">
             <h2>{{vendor_info.business_name}}</h2>
         </div>
-        <div class="card-text move">
+        <div class="card-text move v-id" id={{vendor_info.id}}>
             Owned by: {{vendor_info.name}}
         </div>
-        <div class="card-text move">
+        <div class="card-text move c-id" id={{vendor_info.category_id}}>
             Category: {{vendor_info.category.name}}
         </div>
         <div class="card-text move">
@@ -21,6 +21,9 @@
     <div class="card" id="chatBtn">
         <div class="card-title moveMore">
             <p>Click the icon in the bottom of the page to chat with the vendor!</p>
+        </div>
+        <div class="card-title moveMore">
+            <p>Log in to submit a service request!</p>
         </div>
     </div>
 
@@ -40,35 +43,43 @@
     </div>
     {{/if}}
 
-    {{#if loggedIn}}
+    {{#if loggedin_id}}
     <div class="card">
-        <form class="card-body">
+        <form id="newForm" class="card-body">
             <div class="form-group">
-                <label for="req_name" class="form-label">
+                <label for="req_name" class="form-label u-id" id="{{loggedin_id}}">
                     Title of requested service
                 </label>
-                <input id="req_name" type="text" lass='form-control'>
+                <input id="req_name" type="text" class='form-control'>
             </div>
 
             <div class="form-group">
-                <label for="req.description" class="form-label">
+                <label for="req_description" class="form-label">
                     Detailed description of requested service
                 </label>
-                <input id="req.description" type="text" lass='form-control'>
+                <input id="req_description" type="text" class='form-control'>
             </div>
 
             <div class="form-group">
-                <label for="req.address" class="form-label">
+                <label for="req_address" class="form-label">
                     Service Address
                 </label>
-                <input id="req.address" type="text" lass='form-control'>
+                <input id="req_address" type="text" class='form-control'>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+
+            <div id="status">
+
             </div>
         </form>
     </div>
     {{/if}}
 </div>
 
-    {{#if loggedIn}}
+    {{#if loggedin_id}}
         <script src='/js/vendor-profile.js'></script>
     {{/if}}
 
