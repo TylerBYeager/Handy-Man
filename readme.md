@@ -11,7 +11,7 @@
   ## Description  
   Handy Man was our answer to an issue nearly everyone has encountered. We are all able to order food or a ride to our houses. However, when the home needs repairs finding a skilled tradesman can be difficult. We have to sift through a ton of online searches, reviews, and unanswered call before ultimately picking the first person available and paying too much. Handy Man allows Users to find tradesmen by category, see reviews, and instantly chat to discuss the potential repairs/projects. The idea is to create a business model for "day-of" home repairs or construction projects. 
 
-
+![Demo](https://github.com/TylerBYeager/Handy-Man/blob/main/public/img/Handy-Man%20Demo.gif)
 
   ## Code Snippets
   Here are some code snippets and what they accomplished. This first snippet is from the models/index.js and creates the relationships between all of our tables. 
