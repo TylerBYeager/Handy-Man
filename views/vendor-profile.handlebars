@@ -1,45 +1,56 @@
 <div class="container">
-    <div class="card" id="info">
-        <div class="card-title move" id="business-name">
-            <h2>{{vendor_info.business_name}}</h2>
-        </div>
-        <div class="card-text move">
-            Owned by: {{vendor_info.name}}
-        </div>
-        <div class="card-text move">
-            Category: {{vendor_info.category.name}}
-        </div>
-        <div class="card-text move">
-            Email: {{vendor_info.email}}
-        </div>
-        <div class="card-text move">
-            Phone: {{vendor_info.phone}}
-        </div>
-        
-    </div>
-
-    <div class="card" id="chatBtn">
-        <div class="card-title moveMore">
-            {{!-- <a href="chat-window">Click here to start chatting to initiate a job request (Must be logged in)</a> --}}
-            <p>Click the icon in the bottom of the page to chat with the vendor!</p>
+    <div class="row mt-5">
+        <div class="w-75 mx-auto">
+            <div class="card">
+                <div class="card-header">
+                    <h2>{{vendor_info.business_name}}</h2>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            Owned by:
+                            {{vendor_info.name}}
+                        </li>
+                        <li class="list-group-item">
+                            Category:
+                            {{vendor_info.category.name}}
+                        </li>
+                        <li class="list-group-item">
+                            Email:
+                            {{vendor_info.email}}
+                        </li>
+                        <li class="list-group-item">
+                            Phone:
+                            {{vendor_info.phone}}
+                        </li>
+                    </ul>
+                </div>
+                <div class="card-footer text-muted">
+                    {{! <a href="chat-window">Click here to start chatting to initiate a job request (Must be logged in)</a> }}
+                    Click the icon in the bottom of the page to chat with the
+                    vendor!
+                </div>
+            </div>
         </div>
     </div>
 
     {{#if vendor_info.reviews.length}}
-    <div class="card" id="review">
-        <div class="card-title move">
-            <h4>Reviews</h4>
+        <div class="card" id="review">
+            <div class="card-title">
+                <h4>Reviews</h4>
+            </div>
+
+            <div class="card-text">
+                <ul>
+                    {{#each vendor_info.reviews as |review|}}
+                        <li>{{review.review_text}}</li>
+                    {{/each}}
+                </ul>
+            </div>
         </div>
-    
-        <div class="card-text moveMORE">
-            <ul>
-            {{#each vendor_info.reviews as |review|}}
-                <li>{{review.review_text}}</li>
-            {{/each}}
-            </ul>
-        </div>
-    </div>
     {{/if}}
 </div>
 
-<script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="d982b479-af3b-4f99-846a-76e5c9e81075";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
+<script
+    type="text/javascript"
+>window.$crisp=[];window.CRISP_WEBSITE_ID="d982b479-af3b-4f99-846a-76e5c9e81075";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
