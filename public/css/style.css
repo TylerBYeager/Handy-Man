@@ -128,27 +128,6 @@ body {
     margin-top:30px
 }
 
-#info{
-    margin-top: 30px;
-}
-
-#review{
-    margin-top: 30px;
-}
-
-#chatBtn{
-    margin-top: 30px;
-}
-
-.move{
-    margin-left: 20px;
-}
-
-.moveMORE{
-    margin-left: 30px;
-}
-
-
 @media only screen and (max-width: 1000px){
     .nav-link:hover {
         border-bottom: none!important;
