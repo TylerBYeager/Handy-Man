@@ -53,7 +53,7 @@ body {
     right: 0;
     top: 0;
     display: block;
-    background-image: url(/img/homepage-tools.jpeg);
+    background-image: url(/img/homepage-tools.png);
     background-size: cover;
     transform-origin: center center 0;
     transform: translate(-1px) scale(1);
@@ -128,7 +128,6 @@ body {
     margin-top:30px
 }
 
-<<<<<<< HEAD
 #info{
     margin-top: 30px;
 }
@@ -164,8 +163,6 @@ body {
     margin-top: 20px;
 }
 
-=======
->>>>>>> 2ab984e79e09cd75af00a18466f872939408666b
 @media only screen and (max-width: 1000px){
     .nav-link:hover {
         border-bottom: none!important;
